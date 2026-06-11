@@ -30,13 +30,14 @@ nav a{
     margin-bottom:10px;
 }
 
-.hero button{
+.hero button, .card button{
     margin-top:15px;
     padding:10px 20px;
-    background:#ff6b81;
-    color:white;
+    background:#ffb6c1;
+    color:black;
     border:none;
     cursor:pointer;
+    border-radius:5px;
 }
 
 .products{
@@ -59,6 +60,27 @@ nav a{
     border:1px solid #ddd;
     border-radius:10px;
     vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Light effect from left-top to right-bottom */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    top: 0;
+    left: 0;
 }
 
 .card img{
